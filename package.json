@@ -1,0 +1,65 @@
+{
+  "name": "gltf-forge",
+  "version": "0.1.0",
+  "description": "Parse, validate and inspect glTF 2.0 and GLB assets. The foundation for a web-focused glTF optimizer.",
+  "keywords": [
+    "gltf",
+    "glb",
+    "3d",
+    "webgl",
+    "three.js",
+    "optimizer",
+    "cli"
+  ],
+  "license": "MIT",
+  "author": "Paulo Marques",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/paulojoseph/gltf-forge.git"
+  },
+  "homepage": "https://github.com/paulojoseph/gltf-forge#readme",
+  "bugs": {
+    "url": "https://github.com/paulojoseph/gltf-forge/issues"
+  },
+  "type": "module",
+  "engines": {
+    "node": ">=22"
+  },
+  "bin": {
+    "forge": "dist/bin.js"
+  },
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "default": "./dist/index.js"
+    },
+    "./package.json": "./package.json"
+  },
+  "files": [
+    "dist",
+    "CHANGELOG.md",
+    "LICENSE",
+    "README.md"
+  ],
+  "scripts": {
+    "build": "tsc -p tsconfig.build.json",
+    "lint": "eslint .",
+    "typecheck": "tsc --noEmit",
+    "test": "vitest run",
+    "check": "npm run lint && npm run typecheck && npm run test",
+    "fixtures": "node scripts/generate-fixtures.mjs",
+    "fixtures:check": "node scripts/generate-fixtures.mjs --check",
+    "prepack": "npm run build"
+  },
+  "devDependencies": {
+    "@eslint/js": "^10.0.1",
+    "@types/node": "^22.20.5",
+    "eslint": "^10.14.0",
+    "globals": "^17.14.0",
+    "typescript": "~6.0.3",
+    "typescript-eslint": "^8.72.1",
+    "vitest": "^5.1.0"
+  }
+}
